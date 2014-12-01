@@ -12,10 +12,13 @@ YUI.add('image-preload', function (Y) {
     ImagePreload.NAME = 'image-preload';
     ImagePreload.prototype = {
         initializer: function () {
+            var
+                nodeMainScroll = this.get('nodeMainScroll')
+                ;
             this._vtbl = {
                 images: Y.all('img.preload'),
                 selectorRepeatTimer: null,
-                clientHeight: parseInt(Y.one('html').get('clientHeight'))
+                clientHeight: parseInt(nodeMainScroll.get('clientHeight'))
             };
         },
         bindUI: function () {
