@@ -6,7 +6,7 @@ YUI.add('image-preload', function (Y) {
     }
     ImagePreload.ATTRS = {
         nodeMainScroll: {
-            value: Y.UA.webkit ? Y.one('body') : Y.one('html')
+            value: Y.one('body,html')
         }
     };
     ImagePreload.NAME = 'image-preload';
@@ -18,7 +18,7 @@ YUI.add('image-preload', function (Y) {
             this._vtbl = {
                 images: Y.all('img.preload'),
                 selectorRepeatTimer: null,
-                clientHeight: parseInt(nodeMainScroll.get('clientHeight'))
+                clientHeight: parseInt(Y.one('body').get('clientHeight'))
             };
         },
         bindUI: function () {
@@ -63,7 +63,7 @@ YUI.add('image-preload', function (Y) {
                 self = this,
                 is_image_preload_exists = false,
                 nodeMainScroll = this.get('nodeMainScroll'),
-                scrollTop = parseInt(nodeMainScroll.get('scrollTop'))
+                scrollTop = parseInt(Y.one('body').get('scrollTop'))
                 ;
             this._vtbl.images.each(function (el) {
                 if (el.hasClass('preload') && el.hasAttribute('data-src')) {
