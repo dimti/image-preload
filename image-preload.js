@@ -63,7 +63,7 @@ YUI.add('image-preload', function (Y) {
                 self = this,
                 is_image_preload_exists = false,
                 nodeMainScroll = this.get('nodeMainScroll'),
-                scrollTop = parseInt(Y.one('body').get('scrollTop'))
+                scrollTop = parseInt(Y.one('html, body').get('scrollTop'))
                 ;
             this._vtbl.images.each(function (el) {
                 if (el.hasClass('preload') && el.hasAttribute('data-src')) {
