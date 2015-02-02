@@ -1,0 +1,6 @@
+{
+    "name": "dimti/ImagePreload",
+    "description": "Image preload YUI3 module",
+    "autoload": {},
+    "minimum-stability": "dev"
+}
